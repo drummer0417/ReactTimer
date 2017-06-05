@@ -5,17 +5,17 @@ var Nav = React.createClass({
 
   render: function() {
     return(
-      <div classNmame="top-bar menu-text-color">
+      <div classNmame="top-bar">
         <div className="top-bar-left menu-text-color">
           <ul className="menu">
             <li className="menu-text">Timer App</li>
-            <li><IndexLink to='/'>Timer</IndexLink></li>
-            <li><Link to='/countdown'>Countdown</Link></li>
+            <li><IndexLink to='/' activeClassName='active' activeStyle={{fontWeight: 'bold', color: 'blue'}}>Timer</IndexLink></li>
+            <li><Link to='/countdown' activeClassName='active' activeStyle={{fontWeight: 'bold', color: 'blue'}}>Countdown</Link></li>
           </ul>
         </div>
         <div className="top-bar-right menu-text-color">
           <ul className="menu">
-            <li className="menu-text">Created by: AndroidAppFactory.nl</li>
+            <li className="menu-text">by: AndroidAppFactory.nl</li>
           </ul>
         </div>
       </div>
