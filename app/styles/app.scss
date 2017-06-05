@@ -6,6 +6,9 @@ $title-color: rgb(125,125,255);
   margin-top: $space-large;
   margin-bottom: $space-large;
 }
+.active-link {
+  font-weight: bold;
+}
 
 .menu-text-color {
   color: rgb(255,200,200);
