@@ -1,0 +1,20 @@
+$space-large: 2.5rem;
+$title-color: rgb(125,125,255);
+
+.page-title {
+  color: $title-color;
+  margin-top: $space-large;
+  margin-bottom: $space-large;
+}
+
+.menu-text-color {
+  color: rgb(255,200,200);
+}
+
+input[type=search] {
+  box-shadow: none;
+}
+
+ol {
+    list-style-type: none;
+}
