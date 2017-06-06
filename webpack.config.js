@@ -28,21 +28,19 @@ module.exports = {
       Timer: 'app/components/Timer.jsx',
       ErrorModal: 'app/components/ErrorModal.jsx',
       Main: 'app/components/Main.jsx',
-      Nav: 'app/components/Nav.jsx'
+      Navigation: 'app/components/Navigation.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },
   module: {
-    loaders: [
-      {
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015', 'stage-0']
-        },
-        test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/
-      }
-    ]
+    loaders: [{
+      loader: 'babel-loader',
+      query: {
+        presets: ['react', 'es2015', 'stage-0']
+      },
+      test: /\.jsx?$/,
+      exclude: /(node_modules|bower_components)/
+    }]
   },
   devtool: 'cheap-module-eval-source-map'
 };
