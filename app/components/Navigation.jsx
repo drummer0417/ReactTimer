@@ -15,7 +15,7 @@ var Navigation = React.createClass({
         </div>
         <div className="top-bar-right">
           <ul className="menu">
-            <li className="menu-text">by: AndroidAppFactory.nl</li>
+            <li className="menu-text">by: <a href="http://github.com/drummer0417" target="_blank">AndroidAppFactory.nl</a></li>
           </ul>
         </div>
       </div>
