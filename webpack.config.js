@@ -24,6 +24,7 @@ module.exports = {
     root: __dirname,
     alias: {
       applicationStyles: 'app/styles/app.scss',
+      Clock: 'app/components/Clock.jsx',
       Countdown: 'app/components/Countdown.jsx',
       Timer: 'app/components/Timer.jsx',
       ErrorModal: 'app/components/ErrorModal.jsx',
