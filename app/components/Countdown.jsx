@@ -6,13 +6,48 @@ var Countdown = React.createClass({
 
   getInitialState: function() {
     return({
-      totalSeconds: 0
+      totalSeconds: 0,
+      countdownStatus: 'stopped'
     })
   },
-  handleSetTotalSeconds: function(totalSeconds) {
-    console.log('In handleSetTotalSeconds: ', totalSeconds);
+  componentDidUpdate: function(prevProps, prevState) {
+    if(this.state.countdownStatus !== prevState.countdownStatus) {
+      switch(this.state.countdownStatus) {
+        case 'started':
+          this.startTimer();
+          break;
+        case 'stopped':
+
+          break;
+        case 'paused':
+
+          break;
+      }
+    }
+  },
+  startTimer: function() {
+    console.log('StartTimer now');
+    this.timer = setInterval(() => {
+      var newCount = this.state.totalSeconds - 1;
+      this.setState({
+        totalSeconds: newCount
+      })
+      if(newCount === 0) {
+        this.stopTimer();
+      }
+    }, 1000);
+  },
+  stopTimer: function() {
+    clearTimeout(this.timer);
     this.setState({
-      totalSeconds: totalSeconds
+      countdownStatus: 'stopped'
+    })
+    console.log('StopTimer now');
+  },
+  handleSetTotalSeconds: function(totalSeconds) {
+    this.setState({
+      totalSeconds: totalSeconds,
+      countdownStatus: 'started'
     });
   },
   render: function() {
