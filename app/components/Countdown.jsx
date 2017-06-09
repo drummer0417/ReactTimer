@@ -9,14 +9,14 @@ var Countdown = React.createClass({
       totalSeconds: 0
     })
   },
-  handleSetTotalSeconds: function (totalSeconds){
+  handleSetTotalSeconds: function(totalSeconds) {
     console.log('In handleSetTotalSeconds: ', totalSeconds);
-    this.setState ({
-      totalSeconds: parseInt(totalSeconds)
+    this.setState({
+      totalSeconds: totalSeconds
     });
   },
   render: function() {
-    var {totalSeconds} = this.state;
+    var { totalSeconds } = this.state;
 
     return(
       <div>

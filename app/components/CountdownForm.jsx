@@ -1,28 +1,27 @@
 var React = require('react');
 
-var CountDownForm = React.createClass ({
+var CountDownForm = React.createClass({
 
-  onFormSubmit: function(e){
+  onFormSubmit: function(e) {
     e.preventDefault();
 
-    console.log('in CountdownForm.handleTotalSeconds()');
-    var {onSetTotalSeconds} = this.props;
+    var { onSetTotalSeconds } = this.props;
     var seconds = this.refs.seconds.value;
 
-
-    if (seconds > 0) {
-      onSetTotalSeconds(seconds);
-    } else{
+    // check if seconds contains numbers only and > 0
+    if(seconds.match(/^[0-9]*$/) && seconds > 0) {
+      onSetTotalSeconds(parseInt(seconds, 10));
+    } else {
       alert('Enter a number > 0');
     }
     this.refs.seconds.value = '';
   },
-  render: function(){
+  render: function() {
     return(
       <div>
-        <form  onSubmit={this.onFormSubmit}>
-          <input ref='seconds' type="text" autoFocus placeholder='Enter number of seconds to countdown' />
-          <button className='button expanded' >Start</button>
+        <form ref="form" onSubmit={this.onFormSubmit} className="countdown-form">
+          <input ref='seconds' type="text" autoFocus placeholder='Enter time in seconds' />
+          <button className='button expanded'>Start</button>
         </form>
       </div>
     )
