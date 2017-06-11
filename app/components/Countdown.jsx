@@ -26,7 +26,6 @@ var Countdown = React.createClass({
     }
   },
   startTimer: function() {
-    console.log('StartTimer now');
     this.timer = setInterval(() => {
       var newCount = this.state.totalSeconds - 1;
       this.setState({
@@ -38,11 +37,10 @@ var Countdown = React.createClass({
     }, 1000);
   },
   stopTimer: function() {
-    clearTimeout(this.timer);
+    clearInterval(this.timer);
     this.setState({
       countdownStatus: 'stopped'
     })
-    console.log('StopTimer now');
   },
   handleSetTotalSeconds: function(totalSeconds) {
     this.setState({
