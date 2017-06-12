@@ -13,15 +13,16 @@ var Countdown = React.createClass({
   },
   componentDidUpdate: function(prevProps, prevState) {
     if(this.state.countdownStatus !== prevState.countdownStatus) {
+      console.log('in componentDidUpdate');
       switch(this.state.countdownStatus) {
         case 'started':
           this.startTimer();
           break;
         case 'stopped':
-
-          break;
+          this.setState({ totalSeconds: 0 })
+          // break; =======> no break --> next case will also be executed
         case 'paused':
-
+          this.stopTimer();
           break;
       }
     }
@@ -32,16 +33,15 @@ var Countdown = React.createClass({
       this.setState({
         totalSeconds: newCount
       })
-      if(newCount === 0) {
+      if(newCount <= 0) {
         this.stopTimer();
+        this.setState({ countdownStatus: 'stopped' })
       }
     }, 1000);
   },
   stopTimer: function() {
     clearInterval(this.timer);
-    this.setState({
-      countdownStatus: 'stopped'
-    })
+    this.timer = undefined;
   },
   handleSetTotalSeconds: function(totalSeconds) {
     this.setState({
@@ -49,21 +49,28 @@ var Countdown = React.createClass({
       countdownStatus: 'started'
     });
   },
-  renderFormOrControls: function() {
-    if(this.state.countdownStatus === 'started') {
-      return <Controls countdownStatus={this.state.countdownStatus} />;
-    } else {
-      return <CountdownForm onSetTotalSeconds={this.handleSetTotalSeconds}/>;
-    }
+  handleStatusChange: function(newStatus) {
+    console.log('in handleStatusChange', newStatus);
+    this.setState({
+      countdownStatus: newStatus
+    })
   },
+
   render: function() {
-    var { totalSeconds } = this.state;
-    var component = this.renderFormOrControls();
+    var { totalSeconds, countdownStatus } = this.state;
+
+    var renderFormOrControls = () => {
+      if(countdownStatus !== 'stopped') {
+        return <Controls countdownStatus={countdownStatus} onStatusChange={this.handleStatusChange} />;
+      } else {
+        return <CountdownForm onSetTotalSeconds={this.handleSetTotalSeconds}/>;
+      }
+    }
     return(
       <div>
         <h1 className="text-center page-title">Countdown</h1>
         <Clock totalSeconds={totalSeconds} />
-        { component }
+        {renderFormOrControls()}
       </div>
     )
   }
