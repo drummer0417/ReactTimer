@@ -49,7 +49,6 @@ var Countdown = React.createClass({
     });
   },
   handleStatusChange: function(newStatus) {
-    console.log('in handleStatusChange', newStatus);
     this.setState({
       countdownStatus: newStatus
     })
