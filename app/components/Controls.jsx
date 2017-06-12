@@ -28,7 +28,7 @@ var Controls = React.createClass({
     }
     return(
       <div className="controls">
-        {renderStartPauseButton()};
+        {renderStartPauseButton()}
         <button onClick={this.onStatusChange('stopped')} className="button alert hollow">Clear</button>
       </div>
     )
