@@ -4,7 +4,6 @@ var CountDownForm = React.createClass({
 
   onFormSubmit: function(e) {
     e.preventDefault();
-
     var { onSetTotalSeconds } = this.props;
     var seconds = this.refs.seconds.value;
 
