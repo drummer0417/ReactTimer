@@ -8,7 +8,7 @@ var Countdown = require('Countdown')
 
 describe('Countdown', () => {
 
-  it('Should exist', () =>{
+  it('Should exist', () => {
     expect(Countdown).toExist();
   });
 
@@ -19,10 +19,10 @@ describe('Countdown', () => {
       var countdown = TestUtils.renderIntoDocument(<Countdown />);
       countdown.handleSetTotalSeconds(10);
 
-      expect(countdown.state.countdownStatus).toBe('started');
+      expect(countdown.state.timerStatus).toBe('started');
       expect(countdown.state.totalSeconds).toBe(10);
 
-      setTimeout(() =>{
+      setTimeout(() => {
         expect(countdown.state.totalSeconds).toBe(9);
         done();
       }, 1001);
@@ -33,7 +33,7 @@ describe('Countdown', () => {
       var countdown = TestUtils.renderIntoDocument(<Countdown />);
       countdown.handleSetTotalSeconds(1);
 
-      setTimeout(() =>{
+      setTimeout(() => {
         expect(countdown.state.totalSeconds).toBe(0);
         done();
       }, 3001);
@@ -45,20 +45,20 @@ describe('Countdown', () => {
       countdown.handleSetTotalSeconds(5);
       countdown.handleStatusChange('paused');
 
-      setTimeout(() =>{
+      setTimeout(() => {
         expect(countdown.state.totalSeconds).toBe(5);
-        expect(countdown.state.countdownStatus).toBe('paused');
+        expect(countdown.state.timerStatus).toBe('paused');
         done();
       }, 1001);
     });
 
-    it('Should reset totalSeconds to 0 and countdownStatus to stopped when status changes to stopped', () => {
+    it('Should reset totalSeconds to 0 and timerStatus to stopped when status changes to stopped', () => {
 
       var countdown = TestUtils.renderIntoDocument(<Countdown />);
       countdown.handleSetTotalSeconds(5);
       countdown.handleStatusChange('stopped');
       expect(countdown.state.totalSeconds).toBe(0);
-      expect(countdown.state.countdownStatus).toBe('stopped');
+      expect(countdown.state.timerStatus).toBe('stopped');
 
     });
 
