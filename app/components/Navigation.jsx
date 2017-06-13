@@ -1,10 +1,10 @@
-var React = require( 'react' );
-var { Link, IndexLink } = require( 'react-router' );
+var React = require('react');
+var { Link, IndexLink } = require('react-router');
 
-var Navigation = React.createClass( {
+var Navigation = React.createClass({
 
   render: function() {
-    return (
+    return(
       <div className="top-bar">
         <div className="top-bar-left">
           <ul className="menu">
@@ -15,12 +15,12 @@ var Navigation = React.createClass( {
         </div>
         <div className="top-bar-right">
           <ul className="menu">
-            <li className="menu-text">by: <a href="http://github.com/drummer0417" target="_blank">AndroidAppFactory.nl</a></li>
+            <li className="menu-text">by: <a href="http://github.com/drummer0417" target="_blank">Drummer</a></li>
           </ul>
         </div>
       </div>
     )
   }
-} )
+})
 
 module.exports = Navigation;
