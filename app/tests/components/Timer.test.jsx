@@ -37,7 +37,7 @@ describe('Timer', () => {
         expect(timer.state.totalSeconds).toBe(0);
         expect(timer.state.timerStatus).toBe('paused');
         done();
-      }, 200);
+      }, 1001);
     });
 
     it('Should reset totalSeconds to 0 and timerStatus to stopped when status changes to stopped', (done) => {
@@ -49,7 +49,7 @@ describe('Timer', () => {
         expect(timer.state.totalSeconds).toBe(0);
         expect(timer.state.timerStatus).toBe('stopped');
         done();
-      }, 2001);
+      }, 1001);
     });
 
   });

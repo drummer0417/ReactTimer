@@ -9,4 +9,11 @@
   .button:first-child {
     margin-right: 1.5rem;
   }
+
+  .button {
+    border-radius: 15px;
+    // border-top-right-radius: 50%;
+    // border-bottom-left-radius: 50%;
+    // border-bottom-right-radius: 50%;
+  }
 }
